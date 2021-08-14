@@ -1,0 +1,37 @@
+ControladorConexionesClientes
+    - Lista EsuchadorConexiones
+    - Lista EscuchadorMensajes
+
+    1. Se conecta un cliente -> envia evento OnNuevoCliente
+    2. El servidor agrega este cliente a su hashmap <integer,hiloclient>.
+    3. Inicia el hilo cliente.
+
+    * Servidor quiere enviar msg.
+
+    for(cada hilo del hashmap)
+        hilo.enviar("hola")
+
+    + enviar a uno solo
+    buscar en el hashmap el valor del id.
+    a ese hilo le dices enviar("hola")
+
+    - Sacas todos los hilos client
+    - Sacas A cada hilocliente, su client(socket)
+    - Envias el socket al HiloEscuchador
+    - El hilo escuchador envia el mensaje
+
+
+***********
+HiloCliente
+    Lista de Escuchadores<IHCliente> <-lista observadores
+HiloEscuchador
+    lista de Escucahdores<IHEscuchador> <- lista observadores
+
+Servidor : IHiloCliente, IHiloEscuchador
+Juego: IHiloCliente, IHiloEscuchador
+Registrar al servidor en lista HiloClient
+
+**********
+Quitar un cliente
+    HiloCLiente -> Decir "Se Fue" mi cliente -> Servidor/Juego/Etc (observadores)
+    Servidor -> Quitar de su hashmap (clientes.remove(id))

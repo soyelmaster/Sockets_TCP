@@ -1,0 +1,39 @@
+Formulario impl. IServidorLudo
+    9. Recibe el onEventoX
+    10. Hace algo dependientdo de lo que sea el evento
+
+    registra IServidorLudo
+    recibe los OoMessageSL
+    recibe OnConexionSL
+
+ServidorLudo: IServidorLudo impl. IServidorSocket   
+    6. Recibe el evento onMessageServidorSocket
+    7. Analizar el contenido (Interprete) <- Ve el código del stirng y con switch decide que metodo usar
+    8. Según el metodo lanza otro onEventoX (Crea onEventoXData y onEventoXEvent)
+    2.5. Recibe elevento onNuevaConexion
+    2.6. Lanza el evento OnNuevaConexion (Crea onNuevaConexionData y onNuevaConexionEvent)
+    regitra IServidorSocket
+    recibir los OnMessageServerSocket <- recibir el id y el mensaje
+    Cuando llega un msg, lanza el evento OnMessageSL
+    Recibe OnCOnexionSS
+    // OnConexionSL
+
+ServidorSocket: IServidorSocket impl. IHiloConexiones, IHIloCliente
+    3. Recibe el evento onDatosRecibidos
+    4. Lanza el evento onMessageServidorSocket (Crea onMessage..Data y onMessage...Event)  
+    2.3. Recibe elevento onNuevaCoenxion
+    2.4. Lanza elevento onNuevaConexionServidorSocket (Crea onNueva...Data y onNueva...Event)
+    registra IHiloConexiones
+    Cuando entra un cliente, se registra IHiloCliente (de ese cliente)
+    Cuando llega un msj, lanza el evento OnMessageServerSocket
+    // OnConexionSS
+
+HiloConexiones: IHiloConexiones
+    2.1. Llega una conexion
+    2.2. Lanzar un eventoOnNuevaConxion (Crea OnNuevaConexionData y OnNuevaCoexionEvent)
+
+DataCliente
+
+HiloCliente: IHiloCliente
+    1. Llega un msg.
+    2. Lanza el evento OnDatosRecibos (Crea onDatos..Data y onDatos..Event)

@@ -1,0 +1,35 @@
+Servidor
+    1.  Clase -> Servidor implementar IHEscuchar, IHConexiones
+            - HashMap(HClientes)
+            - ServerSocket
+            - Repondedores IHEscuchar: OnNuevoCliente -> (0. Incrementar conex 1. Crear HiloCliente, 2. Agregar HiloClient lista, 3. Iniciar)
+            - Repondedores IHClient: onNuevoMensaje, OnConexionTerminada  FALTA
+            - Metodo enviar(idconex, mensaje)   FALTA
+    2.  Clase -> HiloEscuchadorConexiones hereda Hilo
+            - ServerSocket*
+            - Crear ClientScoket (Accept)
+            - Envia ClientSocket al Servicor <- evento
+            - Eventos: (1)ListaEscuchadores, (2)Metodos Registrar/Desregistrar, (3)Despachadores
+        Clase -> Interfaz IHEscuchar
+            - Eventos: OnNuevoCliente
+        Estructura de Eventos
+            - ReceiveEventConnect (OnNuevoCliente)
+
+    3.  Clase -> HiloClientes hereda Hilo
+            - ClientSocket
+            - Servidor QUITAR
+            - Metoro run(), escucha mensajes. -> servidor.mensajenuevo() -> muestra en pantalla QUITAR
+            - Metoro run(), escucha mensajes
+            - metodo send(), envia mensajes.
+            - Eventos: (1)ListaEscuchadores, (2)Metodos Registrar/Desregistrar, (3)Despachadores    FALTA
+        Clase -> Interfaz IHConexiones
+            - Eventos: OnNueveMensaje, OnConexionTerminada  FALTA
+       Estructura de Eventos
+            - OnNuevoMensajeEvent       FALTA
+            - OnConeionTerminadaEvent   FALTA
+
+>SERVIDOR>  SServidor       servidor.java
+            hiloEscuchador  hescuchador.java
+                            ihescuchador.java
+                            eventos            onnuevocliente.java 
+            hiloCLient  
